@@ -44,7 +44,7 @@ download()
 
     if [ ! -f /tmp/$fname ]
     then
-        curl -sS -o /tmp/$fname ${xnat_repo}/$fname || return 1
+        curl -v -sS -o /tmp/$fname ${xnat_repo}/$fname || return 1
     fi
 
     calc_sum=`md5sum /tmp/$fname | awk '{print $1}'`
