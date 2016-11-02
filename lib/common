@@ -49,9 +49,14 @@ download()
 
     calc_sum=`md5sum /tmp/$fname | awk '{print $1}'`
 
+    ls /tmp/$fname
+    
     if [ $calc_sum != $sum ]
     then
         echo "$progname: checksum error downloading $fname" >&2
+	ls -l /tmp
+	echo "sum:      $sum"
+	echo "calc_sum: $calc_sum"
         return 1
     fi
 
